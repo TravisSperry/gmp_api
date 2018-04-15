@@ -4,7 +4,10 @@
       .card
         .card-body
           %h3.card-title.text-center Global Math Project Login
-          = simple_form_for :login do |f|
-            = f.input :user_name
+          = simple_form_for :user, url: session_path(:user) do |f|
+            = render '/shared/form_errors', object: f.object
+            = f.input :email
             = f.input :password
-            = f.submit :submit, class: 'btn btn-block btn-secondary'
+            = f.input :remember_me, as: :boolean
+            = f.submit 'Sign in', class: 'btn btn-secondary'
+          = link_to "Forgot your password?", new_password_path(:user)
