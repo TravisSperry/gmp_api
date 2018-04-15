@@ -1,0 +1,10 @@
+.container.pt-5
+  .row
+    .col-md-6.offset-md-3
+      .card
+        .card-body
+          %h3.card-title.text-center Global Math Project Login
+          = simple_form_for :login do |f|
+            = f.input :user_name
+            = f.input :password
+            = f.submit :submit, class: 'btn btn-block btn-secondary'
