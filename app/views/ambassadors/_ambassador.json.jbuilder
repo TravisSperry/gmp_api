@@ -1,2 +1,6 @@
-json.extract! ambassador, :id, :first_name, :last_name, :profile_photo, :country, :twitter, :email, :gmp_statement, :bio, :created_at, :updated_at
+profile_photo_url =
+  url_for(ambassador.profile_photo) if ambassador.profile_photo.attached?
+
+json.extract! ambassador, :id, :first_name, :last_name, :country, :twitter, :email, :gmp_statement, :bio, :created_at, :updated_at
+json.profile_photo_url profile_photo_url
 json.url ambassador_url(ambassador, format: :json)
