@@ -1,0 +1,27 @@
+.container
+  %h1 Listing ambassadors
+  %p= link_to 'New Ambassador', new_ambassador_path
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th First name
+        %th Last name
+        %th Country
+        %th Email
+        %th
+        %th
+
+    %tbody
+      - @ambassadors.each do |ambassador|
+        %tr
+          %td= ambassador.first_name
+          %td= ambassador.last_name
+          %td= ambassador.profile_photo
+          %td= ambassador.country
+          %td= ambassador.twitter
+          %td= ambassador.email
+          %td= ambassador.gmp_statement
+          %td= ambassador.bio
+          %td= link_to 'Show', ambassador
+          %td= link_to 'Edit', edit_ambassador_path(ambassador)

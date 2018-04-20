@@ -1,3 +1,6 @@
-%h1 Dashboard
-.sign-out
-  = link_to 'Sign out', destroy_user_session_path, method: :delete
+.container
+  %h1 Dashboard
+  .new-ambassador
+    = link_to 'Create New Ambassador', new_ambassador_path
+  .sign-out
+    = link_to 'Sign out', destroy_user_session_path, method: :delete

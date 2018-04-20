@@ -1,0 +1,16 @@
+= simple_form_for @ambassador do |f|
+  - if @ambassador.errors.any?
+    #error_explanation
+      %ul
+        - @ambassador.errors.full_messages.each do |message|
+          %li= message
+
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :profile_photo
+  = f.input :country
+  = f.input :twitter
+  = f.input :email
+  = f.input :gmp_statement
+  = f.input :bio
+  = f.submit 'Save', class: 'btn btn-secondary'

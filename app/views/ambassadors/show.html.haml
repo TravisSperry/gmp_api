@@ -1,0 +1,30 @@
+.container
+  %p
+    %b First name:
+    = @ambassador.first_name
+  %p
+    %b Last name:
+    = @ambassador.last_name
+  %p
+    %b Profile photo:
+    %br
+    = image_tag @ambassador.profile_photo, width: '50px', height: '50px'
+  %p
+    %b Country:
+    = @ambassador.country
+  %p
+    %b Twitter:
+    = @ambassador.twitter
+  %p
+    %b Email:
+    = @ambassador.email
+  %p
+    %b Gmp statement:
+    = @ambassador.gmp_statement
+  %p
+    %b Bio:
+    = @ambassador.bio
+
+  = link_to 'Edit', edit_ambassador_path(@ambassador)
+  \|
+  = link_to 'Back', ambassadors_path
