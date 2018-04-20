@@ -10,6 +10,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'country_select'
 gem 'devise'
+gem "google-cloud-storage", "~> 1.8", require: false
 gem 'haml'
 gem 'haml-rails', "~> 1.0"
 gem 'jbuilder', '~> 2.5'
