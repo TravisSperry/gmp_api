@@ -1,6 +1,0 @@
-entrypoint: bundle exec rails server Puma -p $PORT
-env: flex
-runtime: ruby
-
-beta_settings:
-  cloud_sql_instances: global-math-project-201820:us-east1:gmp-api-production

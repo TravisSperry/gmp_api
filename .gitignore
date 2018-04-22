@@ -30,6 +30,6 @@
 /config/master.key
 
 # Ignore google cloud settings
-app.yaml
+*app.yaml
 /config/database.yml
 *Project-fb8ec2b0dba5.json
