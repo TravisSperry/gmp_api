@@ -1,16 +1,22 @@
+language: ruby
+rvm:
+  - 2.5.1
 addons:
   postgresql: '9.6'
 before_install:
-- openssl aes-256-cbc -K $encrypted_c6e50c063231_key -iv $encrypted_c6e50c063231_iv
-  -in config/Global\ Math\ Project-fb8ec2b0dba5.json.enc -out Global\ Math\ Project-fb8ec2b0dba5.json
-  -d
-- gem install bundler
-- gem update --system
-language: ruby
-rvm:
-- 2.5.1
+  - openssl aes-256-cbc -K $encrypted_c6e50c063231_key -iv $encrypted_c6e50c063231_iv
+    -in config/Global\ Math\ Project-fb8ec2b0dba5.json.enc -out Global\ Math\ Project-fb8ec2b0dba5.json
+    -d
+  - gem install bundler
+  - gem update --system
 services:
-- postgresql
+  - postgresql
 before_script:
-- cp config/database.yml.travis config/database.yml
-- psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: gae
+  skip_cleanup: true
+  keyfile: config/Global Math Project-fb8ec2b0dba5.json
+  project: global-math-project-201820
+  default: true
