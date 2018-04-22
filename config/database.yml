@@ -17,6 +17,6 @@ production:
   pool: 5
   timeout: 5000
   username: postgres
-  password: gmp-api-password
+  password: <%= Rails.application.credentials[:production][:database][:password] %>
   database: gmp_api_production
   host: /cloudsql/global-math-project-201820:us-east1:gmp-api-production
