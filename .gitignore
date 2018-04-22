@@ -32,3 +32,4 @@
 # Ignore google cloud settings
 app.yaml
 /config/database.yml
+*Project-fb8ec2b0dba5.json
