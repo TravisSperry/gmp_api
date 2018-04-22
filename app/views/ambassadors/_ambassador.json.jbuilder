@@ -1,5 +1,5 @@
 profile_photo_url =
-  url_for(ambassador.profile_photo) if ambassador.profile_photo.attached?
+  ambassador.profile_photo.service_url if ambassador.profile_photo.attached?
 
 json.extract! ambassador, :id, :first_name, :last_name, :country, :twitter, :email, :gmp_statement, :bio, :created_at, :updated_at
 json.profile_photo_url profile_photo_url
