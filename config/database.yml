@@ -12,5 +12,11 @@ test:
   database: db/gmp_api_test
 
 production:
-  <<: *default
-  database: db/gmp_api_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: gmp-api-password
+  database: gmp_api_production
+  host: /cloudsql/global-math-project-201820:us-east1:gmp-api-production
