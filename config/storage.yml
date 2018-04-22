@@ -8,6 +8,6 @@ local:
 
 google:
   service: GCS
-  credentials: <%= Rails.root.join("config", "Global Math Project-fb8ec2b0dba5.json") %>
+  credentials: <%= Rails.root.join("global-math-project-fb8ec2b0dba5.json") %>
   project: global-math-project-201820
   bucket: gmp-production-storage
