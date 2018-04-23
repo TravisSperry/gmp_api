@@ -2,6 +2,10 @@ class AmbassadorsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :show, :create, :index]
   before_action :set_ambassador, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :verify_authenticity_token, only: [:index, :show]
+  before_action :cors_preflight_check, only: [:index, :show]
+  after_action :cors_set_access_control_headers, only: [:index, :show]
+
   # GET /ambassadors
   # GET /ambassadors.json
   def index
