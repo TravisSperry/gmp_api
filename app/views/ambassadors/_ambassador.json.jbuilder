@@ -6,6 +6,6 @@ elsif ambassador.profile_photo.attached? &&  Rails.application.config.active_sto
     rails_blob_url(ambassador.profile_photo)
 end
 
-json.extract! ambassador, :id, :first_name, :last_name, :country, :twitter, :email, :gmp_statement, :bio, :created_at, :updated_at
+json.extract! ambassador, :id, :first_name, :last_name, :country_name, :twitter, :email, :gmp_statement, :bio, :created_at, :updated_at
 json.profile_photo_url profile_photo_url if profile_photo_url
 json.url ambassador_url(ambassador, format: :json)
