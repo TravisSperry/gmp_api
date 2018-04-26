@@ -2,7 +2,7 @@
   %h1 Listing ambassadors
   %p= link_to 'New Ambassador', new_ambassador_path
 
-  %table.table.table-striped
+  %table.table.datatable
     %thead
       %tr
         %th First name
@@ -18,6 +18,6 @@
           %td= ambassador.first_name
           %td= ambassador.last_name
           %td= ambassador.country
-          %td= ambassador.email
+          %td= mail_to ambassador.email
           %td= link_to 'Show', ambassador
           %td= link_to 'Edit', edit_ambassador_path(ambassador)

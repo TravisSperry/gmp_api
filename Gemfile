@@ -15,6 +15,7 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'haml'
 gem 'haml-rails', "~> 1.0"
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-datatables'
 gem 'jquery-rails'
 gem 'pg', '~> 0.20'
 gem 'puma', '~> 3.11'
