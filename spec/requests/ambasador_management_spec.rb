@@ -9,6 +9,7 @@ RSpec.describe 'Ambassadors', type: :request do
     it 'serves multiple companies as JSON' do
       create_list(:ambassador, 3)
       get '/ambassadors', params: { format: :json }
+
       expect(response.status).to be(200)
       expect(JSON.parse(response.body).length).to eq(3)
     end
@@ -16,6 +17,7 @@ RSpec.describe 'Ambassadors', type: :request do
     it 'serves JSON with correct name field' do
       ambassador = create(:ambassador, first_name: 'Jane', last_name: 'Doe')
       get '/ambassadors/' + ambassador.to_param, params: { format: :json }
+
       expect(response.status).to be(200)
       expect(JSON.parse(response.body)['first_name']).to eq('Jane')
     end
@@ -23,8 +25,9 @@ RSpec.describe 'Ambassadors', type: :request do
     it 'serves JSON with correct country name field' do
       ambassador = create(:ambassador, country: 'US')
       get '/ambassadors/' + ambassador.to_param, params: { format: :json }
+      
       expect(response.status).to be(200)
-      expect(JSON.parse(response.body)['country_name']).to eq('United States')
+      expect(JSON.parse(response.body)['country']).to eq('United States')
     end
   end
 end
