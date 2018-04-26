@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def create_ambassador
   Ambassador.create! first_name: Faker::Name.unique.first_name,
                      last_name:  Faker::Name.unique.last_name,
@@ -6,7 +8,7 @@ def create_ambassador
 end
 
 def create_user
-  user = User.find_or_create_by! email:    'info@globalmathproject.org'
+  user = User.find_or_create_by! email: 'info@globalmathproject.org'
   user.password = 'password'
   user.password_confirmation = 'password'
   user.save

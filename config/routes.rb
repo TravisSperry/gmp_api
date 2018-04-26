@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :ambassadors
   devise_for :users
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
     root 'pages#dashboard', as: :authenticated_root
   end
 
-  root to: "pages#home"
+  root to: 'pages#home'
 
   scope module: :pages do
     get :dashboard
