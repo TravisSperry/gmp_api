@@ -6,6 +6,7 @@ FactoryBot.define do
     first_name Faker::Name.first_name
     last_name Faker::Name.last_name
     country Faker::Address.country_code
+    gmp_statement Faker::TheFreshPrinceOfBelAir.quote
 
     initialize_with { Ambassador.find_or_create_by!(email: email) }
   end
