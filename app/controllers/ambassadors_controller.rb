@@ -75,6 +75,7 @@ class AmbassadorsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ambassador_params
-    params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter, :email, :gmp_statement, :bio)
+    params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter,
+                                       :email, :gmp_statement, :bio)
   end
 end

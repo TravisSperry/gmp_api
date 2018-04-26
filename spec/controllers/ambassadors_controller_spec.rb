@@ -118,14 +118,16 @@ RSpec.describe AmbassadorsController, type: :controller do
 
       it 'updates the requested ambassador' do
         ambassador = Ambassador.create! valid_attributes
-        put :update, params: { id: ambassador.to_param, ambassador: new_attributes }, session: valid_session
+        put :update, params: { id: ambassador.to_param, ambassador: new_attributes },
+                     session: valid_session
         ambassador.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the ambassador' do
         ambassador = Ambassador.create! valid_attributes
-        put :update, params: { id: ambassador.to_param, ambassador: valid_attributes }, session: valid_session
+        put :update, params: { id: ambassador.to_param, ambassador: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(ambassador)
       end
     end
@@ -133,7 +135,8 @@ RSpec.describe AmbassadorsController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         ambassador = Ambassador.create! valid_attributes
-        put :update, params: { id: ambassador.to_param, ambassador: invalid_attributes }, session: valid_session
+        put :update, params: { id: ambassador.to_param, ambassador: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end
