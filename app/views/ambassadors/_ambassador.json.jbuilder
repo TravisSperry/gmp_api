@@ -1,7 +1,9 @@
-if ambassador.profile_photo.attached? &&  Rails.application.config.active_storage.service == :google
-   profile_photo_url =
-     ambassador.profile_photo.service_url
-elsif ambassador.profile_photo.attached? &&  Rails.application.config.active_storage.service == :local
+# frozen_string_literal: true
+
+if ambassador.profile_photo.attached? && Rails.application.config.active_storage.service == :google
+  profile_photo_url =
+    ambassador.profile_photo.service_url
+elsif ambassador.profile_photo.attached? && Rails.application.config.active_storage.service == :local
   profile_photo_url =
     rails_blob_url(ambassador.profile_photo)
 end

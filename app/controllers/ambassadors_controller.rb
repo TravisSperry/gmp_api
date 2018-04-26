@@ -1,10 +1,12 @@
-class AmbassadorsController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :show, :create, :index]
-  before_action :set_ambassador, only: [:show, :edit, :update, :destroy]
+# frozen_string_literal: true
 
-  skip_before_action :verify_authenticity_token, only: [:index, :show]
-  before_action :cors_preflight_check, only: [:index, :show]
-  after_action :cors_set_access_control_headers, only: [:index, :show]
+class AmbassadorsController < ApplicationController
+  before_action :authenticate_user!, except: %i[new show create index]
+  before_action :set_ambassador, only: %i[show edit update destroy]
+
+  skip_before_action :verify_authenticity_token, only: %i[index show]
+  before_action :cors_preflight_check, only: %i[index show]
+  after_action :cors_set_access_control_headers, only: %i[index show]
 
   # GET /ambassadors
   # GET /ambassadors.json
@@ -14,8 +16,7 @@ class AmbassadorsController < ApplicationController
 
   # GET /ambassadors/1
   # GET /ambassadors/1.json
-  def show
-  end
+  def show; end
 
   # GET /ambassadors/new
   def new
@@ -23,8 +24,7 @@ class AmbassadorsController < ApplicationController
   end
 
   # GET /ambassadors/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ambassadors
   # POST /ambassadors.json
@@ -67,13 +67,14 @@ class AmbassadorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ambassador
-      @ambassador = Ambassador.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ambassador_params
-      params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter, :email, :gmp_statement, :bio)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ambassador
+    @ambassador = Ambassador.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def ambassador_params
+    params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter, :email, :gmp_statement, :bio)
+  end
 end
