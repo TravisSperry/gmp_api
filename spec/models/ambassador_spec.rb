@@ -8,12 +8,5 @@ RSpec.describe Ambassador, type: :model do
       ambassador = create :ambassador, country: 'US'
       expect(ambassador.country_name).to eq 'United States'
     end
-
-    describe 'when no contry is present' do
-      it 'returns nil' do
-        ambassador = create :ambassador, country: nil
-        expect(ambassador.country_name).to be_nil
-      end
-    end
   end
 end

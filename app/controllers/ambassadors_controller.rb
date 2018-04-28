@@ -30,7 +30,7 @@ class AmbassadorsController < ApplicationController
   # POST /ambassadors.json
   def create
     @ambassador = Ambassador.new(ambassador_params)
-    destination_url = params[:destination][:url] ? params[:destination][:url] : @ambassador
+    destination_url = params[:destination] ? params[:destination][:url] : @ambassador
 
     respond_to do |format|
       if @ambassador.save
