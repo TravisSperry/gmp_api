@@ -7,10 +7,14 @@
 
   = f.input :first_name
   = f.input :last_name
-  = f.input :profile_photo
-  = f.input :country
-  = f.input :twitter
   = f.input :email
+  = f.input :email_publishable, label: 'Please publish my email with my profile.'
+  = f.input :profile_photo
+  = f.input :country, include_blank: true, input_html: { class: 'chosen' }
+  = f.input :website, label: 'Personal Website'
+  = f.input :twitter
   = f.input :gmp_statement
   = f.input :bio
+  = simple_fields_for :destination do |destination|
+    = destination.input :url, as: :hidden, required: false, input_html: { value: params[:destination_url] || nil }
   = f.submit 'Save', class: 'btn btn-secondary'

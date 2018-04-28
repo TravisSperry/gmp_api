@@ -1,3 +1,25 @@
 // Place all the styles related to the Ambassadors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ambassador-application{
+  background: -webkit-linear-gradient(#FFFFFF 0%, #CDCDCD 100%);
+  background:      -o-linear-gradient(#FFFFFF 0%, #CDCDCD 100%);
+  background:         linear-gradient(#FFFFFF 0%, #CDCDCD 100%);
+  padding-bottom: 5rem;
+
+  .ambassador-header{
+    margin-bottom: 3rem;
+    
+    &::before{
+      content: image-url('wreath-start.svg');
+      position: relative;
+      top: 17px;
+    }
+    &::after{
+      content: image-url('wreath-end.svg');
+      position: relative;
+      top: 17px;
+    }
+  }
+}

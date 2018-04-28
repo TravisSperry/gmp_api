@@ -4,7 +4,9 @@ def create_ambassador
   Ambassador.create! first_name: Faker::Name.unique.first_name,
                      last_name:  Faker::Name.unique.last_name,
                      email:      Faker::Internet.email,
-                     country:    Faker::Address.country
+                     country:    Faker::Address.country,
+                     approved:   [true, false].sample,
+                     verified:   [true, false].sample
 end
 
 def create_user

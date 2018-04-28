@@ -10,6 +10,7 @@ gem 'rails', '~> 5.2.0'
 gem 'appengine', '~> 0.4.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.0.0'
+gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'country_select'
 gem 'devise'

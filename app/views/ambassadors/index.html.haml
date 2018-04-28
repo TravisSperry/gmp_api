@@ -9,6 +9,8 @@
         %th Last name
         %th Country
         %th Email
+        %th Email Verified
+        %th Status
         %th
         %th
 
@@ -19,5 +21,7 @@
           %td= ambassador.last_name
           %td= ambassador.country
           %td= mail_to ambassador.email
+          %td= ambassador.verified
+          %td= ambassador.approved
           %td= link_to 'Show', ambassador
           %td= link_to 'Edit', edit_ambassador_path(ambassador)

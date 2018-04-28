@@ -30,10 +30,11 @@ class AmbassadorsController < ApplicationController
   # POST /ambassadors.json
   def create
     @ambassador = Ambassador.new(ambassador_params)
+    destination_url = params[:destination][:url] ? params[:destination][:url] : @ambassador
 
     respond_to do |format|
       if @ambassador.save
-        format.html { redirect_to @ambassador, notice: 'Ambassador was successfully created.' }
+        format.html { redirect_to destination_url, notice: 'Ambassador was successfully created.' }
         format.json { render :show, status: :created, location: @ambassador }
       else
         format.html { render :new }
@@ -76,6 +77,6 @@ class AmbassadorsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def ambassador_params
     params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter,
-                                       :email, :gmp_statement, :bio)
+                                       :email, :gmp_statement, :bio, :email_publishable, :website)
   end
 end
