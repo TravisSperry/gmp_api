@@ -1,9 +1,10 @@
-@import "bootstrap";
-@import "ambassadors";
-@import "base";
-@import "datatables";
-@import "chosen";
+@import 'bootstrap';
+@import 'variables';
+@import 'ambassadors';
+@import 'base';
+@import 'datatables';
+@import 'chosen';
 
-body{
-  padding: 3rem 0 0 0;
+body {
+  padding: 3rem 0 0;
 }
