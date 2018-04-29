@@ -2,7 +2,7 @@
 
 class AmbassadorsController < ApplicationController
   before_action :authenticate_user!, except: %i[new show create index]
-  before_action :set_ambassador, only: %i[show edit update destroy]
+  before_action :set_ambassador, only: %i[show edit update destroy mark_approved]
 
   skip_before_action :verify_authenticity_token, only: %i[index show]
   before_action :cors_preflight_check, only: %i[index show]
@@ -11,7 +11,11 @@ class AmbassadorsController < ApplicationController
   # GET /ambassadors
   # GET /ambassadors.json
   def index
-    @ambassadors = Ambassador.all
+    if params[:active_ambassadors]
+      @ambassadors = Ambassador.approved_and_verified
+    else
+      @ambassadors = Ambassador.all
+    end
   end
 
   # GET /ambassadors/1
@@ -65,6 +69,11 @@ class AmbassadorsController < ApplicationController
       format.html { redirect_to ambassadors_url, notice: 'Ambassador was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def mark_approved
+    @ambassador.update! approved: true
+    redirect_to ambassadors_url, notice: 'Ambassador was approved.'
   end
 
   private

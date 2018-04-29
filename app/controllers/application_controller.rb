@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authorize_admin
+    if !current_user.admin?
+      redirect_to root_path, warning: 'You are not authorized to view this page.'
+    end
+  end
+
   private
 
   def after_sign_in_path_for(_resource)

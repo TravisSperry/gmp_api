@@ -10,7 +10,7 @@
         %th Country
         %th Email
         %th Email Verified
-        %th Status
+        %th Approved
         %th
         %th
 
@@ -22,6 +22,10 @@
           %td= ambassador.country
           %td= mail_to ambassador.email
           %td= ambassador.verified
-          %td= ambassador.approved
+          %td
+            - if ambassador.approved?
+              %span.text-success Approved
+            -else
+              = link_to "Mark approved", mark_approved_ambassador_path(ambassador), method: :put
           %td= link_to 'Show', ambassador
           %td= link_to 'Edit', edit_ambassador_path(ambassador)

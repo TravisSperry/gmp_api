@@ -4,6 +4,8 @@ class Ambassador < ApplicationRecord
   has_one_attached :profile_photo
   validates_presence_of :first_name, :last_name, :country, :gmp_statement, :bio, :email
 
+  scope :approved_and_verified, -> { where(approved: true, verified: true) }
+
   def country_name
     return country unless country.try(:length) == 2
     country = ISO3166::Country[self.country]
