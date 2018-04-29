@@ -1,8 +1,24 @@
-.container
-  .row.mb-5
-    .col-sm-12
-      %h1.text-center New ambassador
-  .row
-    .col-md-6.offset-md-3
-      = render 'form'
-      = link_to 'Back', ambassadors_path
+.ambassador-application
+  .container
+    .row.mb-5
+      .col-sm-12.col-md-8.offset-md-2
+        %h1.text-center.ambassador-header Ambassador Application
+        %p.text-warning Please complete this application and we will get back to you within 30 days.
+        %p Thank you for your interest in becoming a Global Math Project Ambassador! We welcome the support of those in our global community.
+        %p
+          %strong
+            Ambassadors commit to supporting the Global Math Project in the following ways:
+          %ol#selector
+            %li Promote the Global Math Project in person and through social media
+            %li Recruit teachers from your area to register for Global Math Week 2018
+            %li Help us identify and get in touch with teacher organizations in your area
+            %li Be a Global Math Project point of contact for your country or region
+            %li Conduct a live event the week of October 10, 2018
+        %p Please complete the following questionnaire to apply.
+        %em Note that your responses will remain confidential until your application is approved and you grant permission for the GMP to post your information on the Ambassadors page. We strive to respond to all applications within 30 days of receipt.
+
+    .row
+      .col-md-8.offset-md-2
+        .card
+          .card-body.pt-5
+            = render 'form'

@@ -7,10 +7,16 @@
 
   = f.input :first_name
   = f.input :last_name
-  = f.input :profile_photo
-  = f.input :country
-  = f.input :twitter
   = f.input :email
-  = f.input :gmp_statement
-  = f.input :bio
+  = f.input :email_publishable, label: 'Please publish my email with my profile.'
+  = f.input :profile_photo
+  = f.input :country, include_blank: true, input_html: { class: 'chosen' }
+  = f.input :website, label: 'Personal Website'
+  = f.input :twitter, placeholder: '@awesome_twitter_name'
+  = f.input :gmp_statement, hint: 'Please write a short sentence beginning with "I support GMP ..." or "I believe in GMP ..." expressing your interest in the project.'
+  = f.input :bio, hint: 'Please provide a two-sentence biography.'
+  = f.input :additional_details, hint: 'Global Math Project Ambassadors play a critical role in getting the word out about the project. How do you see yourself fulfilling this role?'
+  = f.input :source, hint: 'How did you hear about us?'
+  = simple_fields_for :destination do |destination|
+    = destination.input :url, as: :hidden, required: false, input_html: { value: params[:destination_url] || nil }
   = f.submit 'Save', class: 'btn btn-secondary'

@@ -4,5 +4,6 @@
     = link_to 'Create New Ambassador', new_ambassador_path
   .list-ambassadors
     = link_to 'View Ambassadors', ambassadors_path
-  .sign-out
-    = link_to 'Sign out', destroy_user_session_path, method: :delete
+  - if current_user.admin?
+    .list-ambassadors
+      = link_to 'Create New User', new_user_path

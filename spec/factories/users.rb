@@ -5,6 +5,12 @@ FactoryBot.define do
     sequence(:email) { |n| "person#{n}@example.com" }
     password 'password'
 
-    initialize_with { User.find_or_create_by!(email: email) }
+    initialize_with do
+      User.find_or_create_by!(
+        email: email,
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name
+      )
+    end
   end
 end

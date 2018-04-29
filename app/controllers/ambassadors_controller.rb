@@ -2,7 +2,7 @@
 
 class AmbassadorsController < ApplicationController
   before_action :authenticate_user!, except: %i[new show create index]
-  before_action :set_ambassador, only: %i[show edit update destroy]
+  before_action :set_ambassador, only: %i[show edit update destroy mark_approved]
 
   skip_before_action :verify_authenticity_token, only: %i[index show]
   before_action :cors_preflight_check, only: %i[index show]
@@ -11,7 +11,11 @@ class AmbassadorsController < ApplicationController
   # GET /ambassadors
   # GET /ambassadors.json
   def index
-    @ambassadors = Ambassador.all
+    if params[:active_ambassadors]
+      @ambassadors = Ambassador.approved_and_verified
+    else
+      @ambassadors = Ambassador.all
+    end
   end
 
   # GET /ambassadors/1
@@ -30,10 +34,11 @@ class AmbassadorsController < ApplicationController
   # POST /ambassadors.json
   def create
     @ambassador = Ambassador.new(ambassador_params)
+    destination_url = params[:destination] ? params[:destination][:url] : @ambassador
 
     respond_to do |format|
       if @ambassador.save
-        format.html { redirect_to @ambassador, notice: 'Ambassador was successfully created.' }
+        format.html { redirect_to destination_url, notice: 'Ambassador was successfully created.' }
         format.json { render :show, status: :created, location: @ambassador }
       else
         format.html { render :new }
@@ -66,6 +71,11 @@ class AmbassadorsController < ApplicationController
     end
   end
 
+  def mark_approved
+    @ambassador.update! approved: true
+    redirect_to ambassadors_url, notice: 'Ambassador was approved.'
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -76,6 +86,6 @@ class AmbassadorsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def ambassador_params
     params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter,
-                                       :email, :gmp_statement, :bio)
+                                       :email, :gmp_statement, :bio, :email_publishable, :website)
   end
 end

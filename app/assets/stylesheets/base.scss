@@ -1,0 +1,42 @@
+// Card formatting
+
+.card {
+  border-radius: $card-border-radius;
+  -moz-box-shadow: 0 2px 5px 0 $box-shadow-gray;
+  -webkit-box-shadow: 0 2px 5px 0 $box-shadow-gray;
+  box-shadow: 0 2px 5px 0 $box-shadow-gray;
+  color: $card-text-gray;
+
+  .card-header {
+    background-color: $white;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+    box-sizing: border-box;
+    padding: 2rem 0 1rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card-body {
+    background: linear-gradient(180deg, $white 0%, $light-gray 100%);
+    box-sizing: border-box;
+    padding: 1rem 5rem;
+
+  }
+
+  .card-content {
+    margin: 0;
+  }
+
+  .card-footer {
+    background-color: $light-gray;
+    border-bottom-left-radius: $card-border-radius;
+    border-bottom-right-radius: $card-border-radius;
+    box-sizing: border-box;
+    padding: 1rem 5rem 3rem;
+  }
+}

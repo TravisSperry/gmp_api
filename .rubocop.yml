@@ -10,3 +10,6 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Exclude:
     - 'db/migrate/*.rb'
+
+Documentation:
+  Enabled: false

@@ -1,0 +1,8 @@
+rubocop:
+  config_file: .rubocop.yml
+
+coffescript:
+  config_file:
+
+scss:
+  config_file: .scss-lint.yml

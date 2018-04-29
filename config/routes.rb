@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :ambassadors
+
+  resources :ambassadors do
+    member do
+      put :mark_approved
+    end
+  end
+
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, except: :create
+
+  post 'create_user' => 'users#create', as: :create_user   
 
   authenticated :user do
     root 'pages#dashboard', as: :authenticated_root
