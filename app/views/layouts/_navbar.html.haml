@@ -5,6 +5,6 @@
   #navbarToggle.collapse.navbar-collapse
     %ul.navbar-nav.ml-auto
       %li.nav-item
-        %a.nav-link{href: "https://www.globalmathproject.org"}Return To Main Site
+        %a.nav-link{href: "http://www.globalmathproject.com"}Return To Main Site
       %li.nav-item= link_to "Dashboard", root_path, class: 'nav-link' if current_user
       %li.nav-item= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' if current_user
