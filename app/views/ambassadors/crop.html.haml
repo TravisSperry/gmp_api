@@ -1,0 +1,14 @@
+.container
+  %h1
+    Crop Profile Photo
+    = link_to 'View Profile', @ambassador, class: 'btn btn-primary float-right'
+    = image_tag rails_blob_url(@ambassador.profile_photo), id: "cropBox", style: 'wdith:100%;' if @ambassador.profile_photo.attachment
+  %h4.mt-4 Preview
+  %div{style: 'width:150px; height:150px; overflow:hidden'}
+    = image_tag rails_blob_url(@ambassador.profile_photo), id: "preview" if @ambassador.profile_photo.attachment
+
+  = form_for @ambassador do |f|
+    - %w[x y w h].each do |attribute|
+      = f.hidden_field "crop_#{attribute}"
+    .actions
+      = f.submit "Crop", class: 'btn btn-success mt-3'
