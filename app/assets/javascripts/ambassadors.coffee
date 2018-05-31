@@ -20,7 +20,6 @@ $ ->
     updatePreview(coords)
 
   updatePreview = (coords) ->
-    console.log $('#cropBox')
     $('#preview').css
       width: Math.round(100/coords.w * realWidth($('#cropBox'))) + 'px'
       height: Math.round(100/coords.h * realHeight($('#cropBox'))) + 'px'
