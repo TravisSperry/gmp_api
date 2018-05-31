@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class Ambassador < ApplicationRecord
+  mount_uploader :profile_photo, ProfilePhotoUploader
+
   attr_accessor :crop_x, :crop_y, :crop_h, :crop_w
 
-  has_one_attached :profile_photo
+  # has_one_attached :profile_photo
   validates_presence_of :first_name, :last_name, :country, :gmp_statement, :bio, :email
 
   scope :approved_and_verified, -> { where(approved: true, verified: true) }

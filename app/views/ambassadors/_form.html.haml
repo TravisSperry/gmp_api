@@ -9,7 +9,7 @@
   = f.input :last_name
   = f.input :email
   = f.input :email_publishable, label: 'Please publish my email with my profile.'
-  = f.input :profile_photo if current_user
+  = f.input :profile_photo
   = f.input :country, include_blank: true, input_html: { class: 'chosen' }
   = f.input :website, label: 'Personal Website'
   = f.input :twitter, placeholder: '@awesome_twitter_name'

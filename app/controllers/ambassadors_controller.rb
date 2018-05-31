@@ -4,9 +4,9 @@ class AmbassadorsController < ApplicationController
   before_action :authenticate_user!, except: %i[new show create index]
   before_action :set_ambassador, only: %i[show edit update destroy mark_approved crop]
 
-  skip_before_action :verify_authenticity_token, only: %i[index show]
-  before_action :cors_preflight_check, only: %i[index show]
-  after_action :cors_set_access_control_headers, only: %i[index show]
+  skip_before_action :verify_authenticity_token, only: %i[index show crop]
+  before_action :cors_preflight_check, only: %i[index show crop]
+  after_action :cors_set_access_control_headers, only: %i[index show crop]
 
   # GET /ambassadors
   # GET /ambassadors.json
