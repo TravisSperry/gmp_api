@@ -1,9 +1,13 @@
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
+  include CarrierWave::RMagick
 
   storage :gcloud
 
   def store_dir
+  end
+
+  version :large do
+    resize_to_limit(300, 300)
   end
 
   version :thumb do
@@ -14,13 +18,18 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  def store_dir
+    "#{model.class.to_s.underscore}/"
+  end
+
   def filename
-    "#{model.first_name}-#{model.last_name}-#{Time.now.getutc.to_i}"
+    "#{model.first_name}-#{model.last_name}.#{model.profile_photo.file.extension}"
   end
 
   def crop
+    puts 'crop'
     if model.crop_x.present?
-      resize_to_limit(600, 600)
+      resize_to_limit(300, 300)
       manipulate! do |img|
         x = model.crop_x.to_i
         y = model.crop_y.to_i

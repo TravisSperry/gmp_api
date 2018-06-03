@@ -1,14 +1,17 @@
 .container
-  %h1
-    Crop Profile Photo
-    = link_to 'View Profile', @ambassador, class: 'btn btn-primary float-right'
-  = image_tag @ambassador.profile_photo.url, id: "cropBox" if @ambassador.profile_photo.present?
-  %h4.mt-4 Preview
-  %div{style: 'width:100px; height:100px; overflow:hidden'}
-    = image_tag @ambassador.profile_photo.url, id: "preview" if @ambassador.profile_photo.present?
+  .row
+    .col-9
+      %h1
+        Crop Profile Photo
+        %small= link_to 'View Profile', @ambassador, class: 'btn btn-primary float-right'
+      = image_tag @ambassador.profile_photo.url(:large), id: "cropBox" if @ambassador.profile_photo.present?
+    .col-3.text-center
+      %h4.mt-4 Preview
+      .ambassador-profile-photo-crop-preview.ml-5
+        = image_tag @ambassador.profile_photo.url, id: "preview" if @ambassador.profile_photo.present?
 
-  = form_for @ambassador do |f|
-    - %w[x y w h].each do |attribute|
-      = f.hidden_field "crop_#{attribute}"
-    .actions
-      = f.submit "Crop", class: 'btn btn-success mt-3'
+      = form_for @ambassador do |f|
+        - %w[x y w h].each do |attribute|
+          = f.hidden_field "crop_#{attribute}"
+        .actions
+          = f.submit "Crop", class: 'btn btn-success mt-3'

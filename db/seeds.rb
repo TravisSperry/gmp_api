@@ -10,14 +10,17 @@ def create_ambassador
 end
 
 def create_user
-  user = User.find_or_create_by! email: 'info@globalmathproject.org'
+  user = User.find_or_create_by! email: 'info@globalmathproject.org',
+                                 first_name: 'Travis',
+                                 last_name: 'Sperry'
+
   user.password = 'password'
   user.password_confirmation = 'password'
-  user.save
+  user.save!
 end
 
 create_user
 
-30.times do
-  create_ambassador
-end
+# 30.times do
+#   create_ambassador
+# end

@@ -21,10 +21,10 @@ $ ->
 
   updatePreview = (coords) ->
     $('#preview').css
-      width: Math.round(100/coords.w * realWidth($('#cropBox'))) + 'px'
-      height: Math.round(100/coords.h * realHeight($('#cropBox'))) + 'px'
-      marginLeft: '-' + Math.round(100/coords.w * coords.x) + 'px'
-      marginTop: '-' + Math.round(100/coords.h * coords.y) + 'px'
+      width: Math.round(150/coords.w * realWidth($('#cropBox'))) + 'px'
+      height: Math.round(150/coords.h * realHeight($('#cropBox'))) + 'px'
+      marginLeft: '-' + Math.round(150/coords.w * coords.x) + 'px'
+      marginTop: '-' + Math.round(150/coords.h * coords.y) + 'px'
 
   realWidth = (obj) ->
     clone = obj.clone()
