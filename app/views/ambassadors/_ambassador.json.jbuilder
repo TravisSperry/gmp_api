@@ -1,18 +1,8 @@
 # frozen_string_literal: true
 
-if ambassador.profile_photo.attached? &&
-   Rails.application.config.active_storage.service == :google
-  profile_photo_url =
-    ambassador.profile_photo.service_url
-elsif ambassador.profile_photo.attached? &&
-      Rails.application.config.active_storage.service == :local
-  profile_photo_url =
-    rails_blob_url(ambassador.profile_photo)
-end
-
 json.extract! ambassador, :id, :first_name, :last_name, :twitter, :email,
               :gmp_statement, :bio, :job_title, :bio, :created_at, :updated_at,
               :email_publishable, :website
 json.country ambassador.country_name
-json.profile_photo.url(:thumb) if profile_photo
+json.profile_photo_url ambassador.profile_photo.url(:thumb) if ambassador.profile_photo
 json.url ambassador_url(ambassador, format: :json)
