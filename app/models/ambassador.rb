@@ -9,7 +9,7 @@ class Ambassador < ApplicationRecord
 
   validates_presence_of :first_name, :last_name, :country, :gmp_statement, :bio, :email
 
-  scope :approved_and_verified, -> { where(approved: true, verified: true) }
+  scope :approved, -> { where(approved: true) }
 
   def country_name
     return country unless country.try(:length) == 2

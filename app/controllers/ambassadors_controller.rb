@@ -12,7 +12,7 @@ class AmbassadorsController < ApplicationController
   # GET /ambassadors.json
   def index
     if params[:active_ambassadors]
-      @ambassadors = Ambassador.approved_and_verified
+      @ambassadors = Ambassador.approved
     else
       @ambassadors = Ambassador.all
     end
