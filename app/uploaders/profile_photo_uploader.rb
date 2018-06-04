@@ -23,11 +23,10 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.first_name}-#{model.last_name}.#{model.profile_photo.file.extension}"
+    "#{model.first_name}-#{model.last_name}.#{model.profile_photo.file.extension}" if model.profile_photo.try(:file)
   end
 
   def crop
-    puts 'crop'
     if model.crop_x.present?
       resize_to_limit(300, 300)
       manipulate! do |img|
