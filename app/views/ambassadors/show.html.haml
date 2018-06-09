@@ -1,10 +1,15 @@
 .container
+  - if @ambassador.approved? && current_user
+    %p.text-success
+      = icon('fas', 'check-circle')
+      Approved
   %p
     %b First name:
     = @ambassador.first_name
   %p
     %b Last name:
     = @ambassador.last_name
+
   %p
     %b Profile photo:
     %br
@@ -29,4 +34,4 @@
 
   = link_to 'Edit', edit_ambassador_path(@ambassador)
   \|
-  = link_to 'Back', ambassadors_path
+  = link_to 'Ambassadors List', ambassadors_path

@@ -14,13 +14,20 @@ class AmbassadorsController < ApplicationController
     if params[:active_ambassadors]
       @ambassadors = Ambassador.approved
     else
-      @ambassadors = Ambassador.all
+      if current_user
+        @ambassadors = Ambassador.all
+      else
+        redirect_to 'http://globalmathproject.com'
+      end
     end
   end
 
   # GET /ambassadors/1
   # GET /ambassadors/1.json
-  def show; end
+  def show
+    return render unless !@ambassador.approved? && !current_user
+    redirect_to 'http://www.globalmathproject.com'
+  end
 
   # GET /ambassadors/new
   def new
@@ -90,7 +97,7 @@ class AmbassadorsController < ApplicationController
   def ambassador_params
     params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter,
                                        :email, :gmp_statement, :bio, :email_publishable, :website,
-                                       :crop_x, :crop_y, :crop_w, :crop_h
+                                       :approved, :crop_x, :crop_y, :crop_w, :crop_h
                                       )
   end
 end

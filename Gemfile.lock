@@ -130,6 +130,8 @@ GEM
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
+    font-awesome-sass (5.0.13)
+      sassc (>= 1.11)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     google-api-client (0.17.4)
@@ -351,6 +353,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (1.11.4)
+      bundler
+      ffi (~> 1.9.6)
+      sass (>= 3.3.0)
     scss_lint (0.57.0)
       rake (>= 0.9, < 13)
       sass (~> 3.5.5)
@@ -432,6 +438,7 @@ DEPENDENCIES
   devise
   factory_bot_rails (~> 4.0)
   faker
+  font-awesome-sass (~> 5.0.13)
   google-cloud-storage (~> 1.8)
   haml
   haml-rails (~> 1.0)

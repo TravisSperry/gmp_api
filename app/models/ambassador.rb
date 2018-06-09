@@ -11,6 +11,10 @@ class Ambassador < ApplicationRecord
 
   scope :approved, -> { where(approved: true) }
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def country_name
     return country unless country.try(:length) == 2
     country = ISO3166::Country[self.country]

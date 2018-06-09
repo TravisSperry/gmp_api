@@ -5,8 +5,7 @@ def create_ambassador
                      last_name:  Faker::Name.unique.last_name,
                      email:      Faker::Internet.email,
                      country:    Faker::Address.country,
-                     approved:   [true, false].sample,
-                     verified:   [true, false].sample
+                     approved:   [true, false].sample
 end
 
 def create_user
@@ -20,7 +19,3 @@ def create_user
 end
 
 create_user
-
-# 30.times do
-#   create_ambassador
-# end

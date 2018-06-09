@@ -1,31 +1,36 @@
 .container
-  %h1 Listing ambassadors
-  %p= link_to 'New Ambassador', new_ambassador_path
+  %h1 Ambassadors
+  %p= link_to 'New Ambassador', new_ambassador_path if current_user
 
   %table.table.datatable
     %thead
       %tr
+        %th Received
         %th First name
         %th Last name
         %th Country
-        %th Email
-        %th Email Verified
-        %th Approved
-        %th
-        %th
+        -if current_user
+          %th Email
+          %th Approved
+          %th
+          %th
 
     %tbody
       - @ambassadors.each do |ambassador|
         %tr
+          %td{ style: ('border-left: #28a745 5px solid;' if ambassador.approved?) }
+            = ambassador.created_at.strftime('%b %d, %Y')
           %td= ambassador.first_name
           %td= ambassador.last_name
           %td= ambassador.country
-          %td= mail_to ambassador.email
-          %td= ambassador.verified
-          %td
-            - if ambassador.approved?
-              %span.text-success Approved
-            -else
-              = link_to "Mark approved", mark_approved_ambassador_path(ambassador), method: :put
-          %td= link_to 'Show', ambassador
-          %td= link_to 'Edit', edit_ambassador_path(ambassador)
+          -if current_user
+            %td= mail_to ambassador.email
+            %td
+              - if ambassador.approved?
+                %span.text-success
+                  = icon('fas', 'check-circle')
+                  Approved
+              -else
+                = link_to "Mark approved", mark_approved_ambassador_path(ambassador), method: :put, data: { confirm: "Are you sure you want to approve #{ambassador.full_name}?"}
+            %td= link_to 'Show', ambassador
+            %td= link_to 'Edit', edit_ambassador_path(ambassador)
