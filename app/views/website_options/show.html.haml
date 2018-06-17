@@ -1,15 +1,19 @@
-%p#notice= notice
+.container
+  .row
+    .col-sm-12.col-md-8.offset-md-2
+      %p
+        %b Website option type:
+        = @website_option.website_option_type.name
+      %p
+        %b Key:
+        = @website_option.key
+      %p
+        %b Value:
+        = @website_option.value
+      %p
+        %b Active:
+        = @website_option.active
 
-%p
-  %b Website option type:
-  = @website_option.website_option_type
-%p
-  %b Active:
-  = @website_option.active
-%p
-  %b Value:
-  = @website_option.value
-
-= link_to 'Edit', edit_website_option_path(@website_option)
-\|
-= link_to 'Back', website_options_path
+      = link_to 'Edit', edit_website_option_path(@website_option)
+      \|
+      = link_to 'Back', website_options_path

@@ -1,6 +1,6 @@
 class WebsiteOptionsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :authorize_admin!
+  before_action :authenticate_user!, only: [:create, :show, :new, :edit, :update, :destroy]
+  before_action :authorize_admin!, only: [:create, :show, :new, :edit, :update, :destroy]
   before_action :set_website_option, only: [:show, :edit, :update, :destroy]
 
   # GET /website_options
@@ -71,6 +71,6 @@ class WebsiteOptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def website_option_params
-      params.require(:website_option).permit(:website_option_type_id, :active, :value)
+      params.require(:website_option).permit(:website_option_type_id, :active, :key, :value)
     end
 end
