@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root 'pages#dashboard', as: :authenticated_root
+    resources :website_options
+    resources :website_option_types
   end
 
   root to: 'pages#home'

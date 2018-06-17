@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Website option type:
+  = @website_option.website_option_type
+%p
+  %b Active:
+  = @website_option.active
+%p
+  %b Value:
+  = @website_option.value
+
+= link_to 'Edit', edit_website_option_path(@website_option)
+\|
+= link_to 'Back', website_options_path

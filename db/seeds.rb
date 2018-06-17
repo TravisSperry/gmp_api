@@ -11,7 +11,8 @@ end
 def create_user
   user = User.find_or_create_by! email: 'info@globalmathproject.org',
                                  first_name: 'Travis',
-                                 last_name: 'Sperry'
+                                 last_name: 'Sperry',
+                                 admin: true
 
   user.password = 'password'
   user.password_confirmation = 'password'
@@ -19,3 +20,5 @@ def create_user
 end
 
 create_user
+
+WebsiteOptionType.create!(name: WebsiteOptionType::CONFIGURATION)

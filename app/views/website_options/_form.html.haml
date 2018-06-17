@@ -1,0 +1,12 @@
+= simple_form_for @website_option do |f|
+  - if @website_option.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@website_option.errors.count, "error")} prohibited this website_option from being saved:"
+      %ul
+        - @website_option.errors.full_messages.each do |message|
+          %li= message
+
+  = f.association :website_option_type
+  = f.input :value
+  = f.input :active
+  = f.submit 'Save'

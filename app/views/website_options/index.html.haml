@@ -1,0 +1,25 @@
+%h1 Listing website_options
+
+%table
+  %thead
+    %tr
+      %th Website option type
+      %th Active
+      %th Value
+      %th
+      %th
+      %th
+
+  %tbody
+    - @website_options.each do |website_option|
+      %tr
+        %td= website_option.website_option_type
+        %td= website_option.active
+        %td= website_option.value
+        %td= link_to 'Show', website_option
+        %td= link_to 'Edit', edit_website_option_path(website_option)
+        %td= link_to 'Destroy', website_option, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Website option', new_website_option_path
