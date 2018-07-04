@@ -13,15 +13,25 @@
         %th Handout
         %th
         %th
-        %th
+        -if current_user.admin?
+          %th
 
     %tbody
       - @chapters.each do |chapter|
         %tr
           %td= chapter.number
           %td= chapter.name
-          %td= chapter.teaching_quide ? link_to('teaching guide', chapter.teaching_quide.url) : 'No Teaching Guide'
-          %td= chapter.handout ? link_to('handout', chapter.handout.url) : 'No Handout'
+          - if chapter.teaching_quide
+            %td= link_to('teaching guide', chapter.teaching_quide.url)
+          - else
+            %td No Teaching Guide
+          - if chapter.handout
+            %td= link_to('handout', chapter.teaching_quide.url)
+          - else
+            %td No Handout
           %td= link_to 'Show', chapter
           %td= link_to 'Edit', edit_exploding_dots_chapter_path(chapter)
-          %td= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure you want to delete this chapter?' } if current_user.admin?
+          - if current_user.admin?
+            %td= link_to 'Destroy', chapter,
+                                    method: :delete,
+                                    data: { confirm: 'Are you sure you want to delete this chapter?' }

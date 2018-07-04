@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
@@ -12,7 +14,7 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   def store_dir
@@ -20,19 +22,19 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.first_name}-#{model.last_name}.#{model.profile_photo.file.extension}" if model.profile_photo.try(:file)
+    return unless model.profile_photo.try(:file)
+    "#{model.first_name}-#{model.last_name}.#{model.profile_photo.file.extension}"
   end
 
   def crop
-    if model.crop_x.present?
-      resize_to_limit(300, 300)
-      manipulate! do |img|
-        x = model.crop_x.to_i
-        y = model.crop_y.to_i
-        w = model.crop_w.to_i
-        h = model.crop_h.to_i
-        img.crop!(x, y, w, h)
-      end
+    return unless model.crop_x.blank?
+    resize_to_limit(300, 300)
+    manipulate! do |img|
+      x = model.crop_x.to_i
+      y = model.crop_y.to_i
+      w = model.crop_w.to_i
+      h = model.crop_h.to_i
+      img.crop!(x, y, w, h)
     end
   end
 end

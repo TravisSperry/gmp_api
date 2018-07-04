@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateWebsiteOptionTypes < ActiveRecord::Migration[5.2]
   def change
     create_table :website_option_types do |t|

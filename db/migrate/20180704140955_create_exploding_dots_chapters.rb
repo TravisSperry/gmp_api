@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateExplodingDotsChapters < ActiveRecord::Migration[5.2]
   def change
     create_table :exploding_dots_chapters do |t|

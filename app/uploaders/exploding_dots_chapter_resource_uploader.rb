@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExplodingDotsChapterResourceUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
@@ -7,13 +9,13 @@ class ExplodingDotsChapterResourceUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :preview, :if => :image? do
+  version :preview, if: :image? do
     process :cover
-    process resize_and_pad: [170, 220, "#FFFFFF", ::Magick::CenterGravity]
+    process resize_and_pad: [170, 220, '#FFFFFF', ::Magick::CenterGravity]
     process convert: :jpg
     process :set_content_type_img
 
-    def full_filename (for_file = model.source.file)
+    def full_filename(for_file = model.source.file)
       super.chomp(File.extname(super)) + '.jpg'
     end
   end
@@ -24,8 +26,8 @@ class ExplodingDotsChapterResourceUploader < CarrierWave::Uploader::Base
     end
   end
 
-  def set_content_type_img(*args)
-    self.file.instance_variable_set(:@content_type, "image/jpeg")
+  def set_content_type_img(*_args)
+    file.instance_variable_set(:@content_type, 'image/jpeg')
   end
 
   protected

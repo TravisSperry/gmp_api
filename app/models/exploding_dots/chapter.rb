@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ExplodingDots
   class Chapter < ApplicationRecord
     validates :number, uniqueness: true

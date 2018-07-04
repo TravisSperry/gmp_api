@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ExplodingDots
   class ChaptersController < ApplicationController
     before_action :authenticate_user!, only: %i[new edit update destroy create]
@@ -11,8 +13,7 @@ module ExplodingDots
 
     # GET /chapters/1
     # GET /chapters/1.json
-    def show
-    end
+    def show; end
 
     # GET /chapters/new
     def new
@@ -20,8 +21,7 @@ module ExplodingDots
     end
 
     # GET /chapters/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /chapters
     # POST /chapters.json
@@ -64,14 +64,15 @@ module ExplodingDots
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_chapter
-        @chapter = ExplodingDots::Chapter.find(params[:id])
-      end
 
-      # Never trust parameters from the scary internet, only allow the white list through.
-      def chapter_params
-        params.require(:exploding_dots_chapter).permit(:teaching_quide, :handout, :number, :name)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_chapter
+      @chapter = ExplodingDots::Chapter.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def chapter_params
+      params.require(:exploding_dots_chapter).permit(:teaching_quide, :handout, :number, :name)
+    end
   end
 end

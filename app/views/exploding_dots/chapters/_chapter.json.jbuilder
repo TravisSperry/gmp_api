@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.extract! chapter, :id, :number, :name, :created_at, :updated_at
 if chapter.teaching_quide
   json.teaching_guide_url chapter.teaching_quide.url

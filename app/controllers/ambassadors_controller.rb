@@ -13,12 +13,10 @@ class AmbassadorsController < ApplicationController
   def index
     if params[:active_ambassadors]
       @ambassadors = Ambassador.approved
+    elsif current_user
+      @ambassadors = Ambassador.all
     else
-      if current_user
-        @ambassadors = Ambassador.all
-      else
-        redirect_to 'http://globalmathproject.com'
-      end
+      redirect_to 'http://globalmathproject.com'
     end
   end
 
@@ -83,8 +81,7 @@ class AmbassadorsController < ApplicationController
     redirect_to ambassadors_url, notice: 'Ambassador was approved.'
   end
 
-  def crop
-  end
+  def crop; end
 
   private
 
@@ -97,7 +94,6 @@ class AmbassadorsController < ApplicationController
   def ambassador_params
     params.require(:ambassador).permit(:first_name, :last_name, :profile_photo, :country, :twitter,
                                        :email, :gmp_statement, :bio, :email_publishable, :website,
-                                       :approved, :crop_x, :crop_y, :crop_w, :crop_h
-                                      )
+                                       :approved, :crop_x, :crop_y, :crop_w, :crop_h)
   end
 end

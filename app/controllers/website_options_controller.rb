@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class WebsiteOptionsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :show, :new, :edit, :update, :destroy]
-  before_action :authorize_admin!, only: [:create, :show, :new, :edit, :update, :destroy]
-  before_action :set_website_option, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[create show new edit update destroy]
+  before_action :authorize_admin!, only: %i[create show new edit update destroy]
+  before_action :set_website_option, only: %i[show edit update destroy]
 
   # GET /website_options
   # GET /website_options.json
@@ -11,8 +13,7 @@ class WebsiteOptionsController < ApplicationController
 
   # GET /website_options/1
   # GET /website_options/1.json
-  def show
-  end
+  def show; end
 
   # GET /website_options/new
   def new
@@ -20,8 +21,7 @@ class WebsiteOptionsController < ApplicationController
   end
 
   # GET /website_options/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /website_options
   # POST /website_options.json
@@ -30,7 +30,9 @@ class WebsiteOptionsController < ApplicationController
 
     respond_to do |format|
       if @website_option.save
-        format.html { redirect_to @website_option, notice: 'Website option was successfully created.' }
+        format.html do
+          redirect_to @website_option, notice: 'Website option was successfully created.'
+        end
         format.json { render :show, status: :created, location: @website_option }
       else
         format.html { render :new }
@@ -44,7 +46,9 @@ class WebsiteOptionsController < ApplicationController
   def update
     respond_to do |format|
       if @website_option.update(website_option_params)
-        format.html { redirect_to @website_option, notice: 'Website option was successfully updated.' }
+        format.html do
+          redirect_to @website_option, notice: 'Website option was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @website_option }
       else
         format.html { render :edit }
@@ -58,19 +62,22 @@ class WebsiteOptionsController < ApplicationController
   def destroy
     @website_option.destroy
     respond_to do |format|
-      format.html { redirect_to website_options_url, notice: 'Website option was successfully destroyed.' }
+      format.html do
+        redirect_to website_options_url, notice: 'Website option was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_website_option
-      @website_option = WebsiteOption.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def website_option_params
-      params.require(:website_option).permit(:website_option_type_id, :active, :key, :value)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_website_option
+    @website_option = WebsiteOption.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def website_option_params
+    params.require(:website_option).permit(:website_option_type_id, :active, :key, :value)
+  end
 end

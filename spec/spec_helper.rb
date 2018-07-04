@@ -55,9 +55,7 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.after(:each) do
-    if Rails.env.test?
-      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
-    end
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"]) if Rails.env.test?
   end
 
   # The settings below are suggested to provide a good initial experience
