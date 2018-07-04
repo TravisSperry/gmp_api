@@ -1,0 +1,17 @@
+.container
+  %h1
+    Exploding Dots Chapter
+    = @chapter.number
+
+  %h2
+    = @chapter.name
+
+  %p
+    = link_to "Teaching Guide", @chapter.teaching_quide.url, target: "_blank"
+    \|
+    = link_to "Handout", @chapter.handout.url, target: "_blank"
+
+  - if current_user
+    = link_to 'Edit', edit_exploding_dots_chapter_path(@chapter)
+    \|
+    = link_to 'Back', exploding_dots_chapters_path

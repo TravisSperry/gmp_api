@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :exploding_dots do
+    resources :chapters
+  end
+
   devise_for :users
   resources :users, except: :create
 

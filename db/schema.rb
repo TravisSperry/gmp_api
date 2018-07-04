@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_17_140844) do
+ActiveRecord::Schema.define(version: 2018_07_04_140955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2018_06_17_140844) do
     t.text "source"
     t.text "additional_details"
     t.string "profile_photo"
+  end
+
+  create_table "exploding_dots_chapters", force: :cascade do |t|
+    t.string "teaching_quide"
+    t.string "handout"
+    t.integer "number", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["number"], name: "index_exploding_dots_chapters_on_number", unique: true
   end
 
   create_table "users", force: :cascade do |t|

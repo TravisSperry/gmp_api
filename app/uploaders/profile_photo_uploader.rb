@@ -3,9 +3,6 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
 
   storage :gcloud
 
-  def store_dir
-  end
-
   version :large do
     resize_to_limit(300, 300)
   end
