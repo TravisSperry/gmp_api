@@ -21,4 +21,11 @@ end
 
 create_user
 
-WebsiteOptionType.create!(name: WebsiteOptionType::CONFIGURATION)
+WebsiteOptionType.find_or_create_by!(name: WebsiteOptionType::CONFIGURATION)
+
+WebsiteOption.find_or_create_by!(
+  website_option_type: WebsiteOptionType.configuration,
+  key: 'student_registration_count',
+  value: '4,123,000',
+  active: true
+)

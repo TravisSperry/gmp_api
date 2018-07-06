@@ -5,6 +5,10 @@ class WebsiteOptionsController < ApplicationController
   before_action :authorize_admin!, only: %i[create show new edit update destroy]
   before_action :set_website_option, only: %i[show edit update destroy]
 
+  skip_before_action :verify_authenticity_token, only: %i[index show]
+  before_action :cors_preflight_check, only: %i[index show]
+  after_action :cors_set_access_control_headers, only: %i[index show]
+
   # GET /website_options
   # GET /website_options.json
   def index
