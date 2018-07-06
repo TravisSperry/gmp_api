@@ -1,6 +1,6 @@
 //= require datatables/jquery.dataTables
 //= require datatables/dataTables.bootstrap4
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $(".datatable").dataTable();
 });

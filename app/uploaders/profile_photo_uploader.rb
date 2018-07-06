@@ -27,7 +27,7 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   end
 
   def crop
-    return unless model.crop_x.blank?
+    return if model.crop_x.blank?
     resize_to_limit(300, 300)
     manipulate! do |img|
       x = model.crop_x.to_i
