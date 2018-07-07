@@ -7,9 +7,21 @@
     = @chapter.name
 
   %p
-    = link_to "Teaching Guide", @chapter.teaching_quide.url, target: "_blank"
-    \|
-    = link_to "Handout", @chapter.handout.url, target: "_blank"
+    = link_to "Teaching Guide", @chapter.teaching_guide.url, class: 'btn btn-light', target: "_blank" if @chapter.teaching_guide.present?
+    = link_to "Handout", @chapter.handout.url, class: 'btn btn-light', target: "_blank" if @chapter.handout.present?
+
+  %table.table
+    %thead
+      %tr
+        %th Translations By Language
+        %th
+    %tbody
+      - @chapter.translations.each do |translation|
+        %tr
+          %td
+            = translation.language
+          %td
+            = link_to 'link', translation.resource.url, target: :_blank
 
   - if current_user
     = link_to 'Edit', edit_exploding_dots_chapter_path(@chapter)

@@ -8,6 +8,32 @@
 
   = f.input :number, label: 'Chapter Number', as: :select, collection: (1..20).to_a
   = f.input :name
-  = f.input :teaching_quide
-  = f.input :handout
+
+  - if @chapter.teaching_guide.present?
+    %p
+      .row
+        .col
+          = link_to 'Current Teaching Guide Version', @chapter.teaching_guide.url, target: :_blank
+        .col
+          = f.input :remove_teaching_guide, as: :boolean
+  - else
+    = f.input :teaching_guide
+  - if @chapter.handout.present?
+    %p
+      .row
+        .col
+          = link_to 'Current Handout Version', @chapter.handout.url, target: :_blank
+        .col
+          = f.input :remove_handout, as: :boolean, input_html: { class: 'float-right' }
+  - else
+    = f.input :handout
+
+  %h4 Translations
+  #translations
+    = f.simple_fields_for :translations do |translation|
+      = render 'translation_fields', f: translation
+    .links
+      = link_to_add_association f, :translations do
+        %i.fas.fa-plus
+        Add Translation
   = f.submit 'Save', class: 'btn btn-secondary'

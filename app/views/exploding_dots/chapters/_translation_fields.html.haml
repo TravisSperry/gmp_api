@@ -1,0 +1,11 @@
+.nested-fields.nested-translation-fields.clearfix
+  = f.input :language, as: :select,
+                       collection: LanguageList::COMMON_LANGUAGES.map { |language| language.name },
+                       input_html: { class: 'chosen' }
+  - if f.object.resource.present?
+    %p
+      = link_to 'Current Handout Version', f.object.resource.url
+  -else
+    = f.input :resource, as: :file
+  %p
+    = link_to_remove_association "remove translation", f, class: 'text-danger float-right'

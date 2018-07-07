@@ -76,7 +76,8 @@ module ExplodingDots
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
-      params.require(:exploding_dots_chapter).permit(:teaching_quide, :handout, :number, :name)
+      params.require(:exploding_dots_chapter).permit(:teaching_guide, :handout, :number, :name, :remove_teaching_guide, :remove_handout,
+      translations_attributes: [:id, :chapter_id, :resource, :language, :_destroy])
     end
   end
 end
