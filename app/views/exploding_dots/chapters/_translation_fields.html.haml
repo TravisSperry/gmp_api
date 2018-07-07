@@ -4,7 +4,7 @@
                        input_html: { class: 'chosen' }
   - if f.object.resource.present?
     %p
-      = link_to 'Current Handout Version', f.object.resource.url
+      = link_to 'Current PDF Version', f.object.resource.url
   -else
     = f.input :resource, as: :file
   %p
