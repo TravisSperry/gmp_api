@@ -5,10 +5,14 @@ module ExplodingDots
     before_action :authenticate_user!, only: %i[new edit update destroy create]
     before_action :set_chapter, only: %i[show edit update destroy]
 
+    skip_before_action :verify_authenticity_token, only: %i[index show]
+    before_action :cors_preflight_check, only: %i[index show]
+    after_action :cors_set_access_control_headers, only: %i[index show]
+
     # GET /chapters
     # GET /chapters.json
     def index
-      @chapters = ExplodingDots::Chapter.all
+      @chapters = ExplodingDots::Chapter.order(number: :asc).all
     end
 
     # GET /chapters/1

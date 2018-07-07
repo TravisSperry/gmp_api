@@ -6,7 +6,7 @@
         - @chapter.errors.full_messages.each do |message|
           %li= message
 
-  = f.input :number, label: 'Chapter Number', as: :select, collection: (1..10).to_a
+  = f.input :number, label: 'Chapter Number', as: :select, collection: (1..20).to_a
   = f.input :name
   = f.input :teaching_quide
   = f.input :handout
