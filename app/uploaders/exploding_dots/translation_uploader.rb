@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ExplodingDots
   class TranslationResourceUploader < CarrierWave::Uploader::Base
     include CarrierWave::RMagick

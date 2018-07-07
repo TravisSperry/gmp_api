@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ExplodingDots
   class ChapterResourceUploader < CarrierWave::Uploader::Base
     include CarrierWave::RMagick
@@ -37,5 +38,4 @@ module ExplodingDots
       new_file.content_type.start_with?('image') || new_file.content_type.include?('pdf')
     end
   end
-
 end

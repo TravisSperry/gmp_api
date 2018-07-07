@@ -64,7 +64,7 @@ class WebsiteOptionTypesController < ApplicationController
     respond_to do |format|
       format.html do
         redirect_to website_option_types_url,
-          notice: 'Website option type was successfully destroyed.'
+                    notice: 'Website option type was successfully destroyed.'
       end
       format.json { head :no_content }
     end
