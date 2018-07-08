@@ -13,9 +13,9 @@
   %p
     %b Profile photo:
     %br
-    = image_tag @ambassador.profile_photo.url(:thumb), class: 'ambassador-profile-photo'
+    = image_tag @ambassador.profile_photo.url(:thumb), class: 'ambassador-profile-photo' if @ambassador.profile_photo.present?
   %p
-    = link_to "Edit Profile Photo", crop_ambassador_path(@ambassador)
+    = link_to "Edit Profile Photo", crop_ambassador_path(@ambassador) if @ambassador.profile_photo.present?
   %p
     %b Country:
     = @ambassador.country
