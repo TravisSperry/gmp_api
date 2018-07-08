@@ -21,12 +21,12 @@
         %tr
           %td= chapter.number
           %td= chapter.name
-          - if chapter.teaching_guide
+          - if !chapter.teaching_guide.blank?
             %td= link_to('teaching guide', chapter.teaching_guide.url)
           - else
             %td No Teaching Guide
-          - if chapter.handout
-            %td= link_to('handout', chapter.teaching_guide.url)
+          - if !chapter.handout.blank?
+            %td= link_to('handout', chapter.handout.url)
           - else
             %td No Handout
           %td= link_to 'Show', chapter
