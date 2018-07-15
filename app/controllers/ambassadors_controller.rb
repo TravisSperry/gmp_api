@@ -29,6 +29,7 @@ class AmbassadorsController < ApplicationController
 
   # GET /ambassadors/new
   def new
+    flash[:notice] = 'Your application has been received! <a href="http://www.globalmathproject.org">Click here</a> to return to our main site.'.html_safe
     @ambassador = Ambassador.new
   end
 
@@ -39,12 +40,10 @@ class AmbassadorsController < ApplicationController
   # POST /ambassadors.json
   def create
     @ambassador = Ambassador.new(ambassador_params)
-    destination_url = params[:destination] ? params[:destination][:url] : @ambassador
 
     respond_to do |format|
       if @ambassador.save
-        format.html { redirect_to destination_url, notice: 'Ambassador was successfully created.' }
-        format.json { render :show, status: :created, location: @ambassador }
+        format.html { redirect_to new_ambassador_url, notice: 'Your application has been received! <a href="http://www.globalmathproject.org">Click here</a> to return to our main site.' }
       else
         format.html { render :new }
         format.json { render json: @ambassador.errors, status: :unprocessable_entity }
