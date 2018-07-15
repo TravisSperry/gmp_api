@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 def create_ambassador
-  Ambassador.create! first_name: Faker::Name.unique.first_name,
-                     last_name:  Faker::Name.unique.last_name,
-                     email:      Faker::Internet.email,
-                     country:    Faker::Address.country,
-                     approved:   [true, false].sample
+  Ambassador.create! first_name:    Faker::Name.unique.first_name,
+                     last_name:     Faker::Name.unique.last_name,
+                     gmp_statement: Faker::Lorem.sentence,
+                     bio:           Faker::Lorem.paragraph,
+                     email:         Faker::Internet.email,
+                     country:       Faker::Address.country,
+                     approved:      [true, false].sample
 end
 
 def create_user
