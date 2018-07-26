@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'country_select'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.0.13'
+gem 'gibbon'
 gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'haml'
 gem 'haml-rails', '~> 1.0'

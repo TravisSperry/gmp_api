@@ -133,6 +133,9 @@ GEM
     ffi (1.9.23)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
+    gibbon (3.2.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     google-api-client (0.17.4)
@@ -442,6 +445,7 @@ DEPENDENCIES
   factory_bot_rails (~> 4.0)
   faker
   font-awesome-sass (~> 5.0.13)
+  gibbon
   google-cloud-storage (~> 1.8)
   haml
   haml-rails (~> 1.0)

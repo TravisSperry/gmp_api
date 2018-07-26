@@ -77,8 +77,14 @@ class AmbassadorsController < ApplicationController
 
   def mark_approved
     @ambassador.update! approved: true
-    redirect_to ambassadors_url, notice: 'Ambassador was approved.'
+    NewsletterService.new(@ambassador).subscribe
+
+    redirect_to ambassadors_url, notice: 'Ambassador was approved and added to the onboarding sequence.'
+
+    rescue Gibbon::MailChimpError => error
+      redirect_to ambassadors_url, notice: "Ambassador was approved but there was a problem adding them to the onboarding sequence: #{error.detail}"
   end
+
 
   def crop; end
 
