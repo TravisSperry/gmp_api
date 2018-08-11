@@ -23,7 +23,7 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
 
   def filename
     return unless model.profile_photo.try(:file)
-    @name ||= "#{model.first_name.delete(' ')}-#{model.last_name.delete(' ')}-#{timestamp}.#{model.profile_photo.file.extension}" if original_filename.present?
+    @name ||= "#{model.class.to_s.underscore}-profile-photo-#{timestamp}.#{model.profile_photo.file.extension}" if original_filename.present?
   end
 
   def timestamp
