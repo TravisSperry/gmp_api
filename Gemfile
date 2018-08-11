@@ -10,7 +10,7 @@ gem 'rails', '~> 5.2.0'
 gem 'appengine', '~> 0.4.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.0.0'
-gem 'carrierwave-google-storage', git: 'https://github.com/TravisSperry/carrierwave-google-storage'
+gem 'carrierwave-google-storage', git: 'https://github.com/TravisSperry/carrierwave-google-storage.git'
 gem 'chosen-rails'
 gem 'cocoon'
 gem 'coffee-rails', '~> 4.2'
