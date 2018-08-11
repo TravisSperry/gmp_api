@@ -23,7 +23,12 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
 
   def filename
     return unless model.profile_photo.try(:file)
-    "#{model.first_name}-#{model.last_name}.#{model.profile_photo.file.extension}"
+    @name ||= "#{model.class.to_s.underscore}-profile-photo-#{timestamp}.#{model.profile_photo.file.extension}" if original_filename.present?
+  end
+
+  def timestamp
+    var = :"@#{mounted_as}_timestamp"
+    model.instance_variable_get(var) or model.instance_variable_set(var, Time.now.to_i)
   end
 
   def crop
