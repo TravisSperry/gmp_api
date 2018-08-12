@@ -1,6 +1,7 @@
 GIT
-  remote: https://github.com/TravisSperry/carrierwave-google-storage.git
+  remote: git://github.com/TravisSperry/carrierwave-google-storage.git
   revision: 051d099eb21eb5c6806bb0c2c609ee3b0fa1d0a8
+  tag: v0.9.0
   specs:
     carrierwave-google-storage (0.8.0)
       activemodel (>= 3.2.0)
