@@ -1,0 +1,48 @@
+current directory: /Users/travis/code/projects/global_math_project/gmp_api/vendor/bundle/ruby/2.5.0/gems/google-cloud-debugger-0.32.0/ext/google/cloud/debugger/debugger_c
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180811-15100-et8l9h.rb extconf.rb
+creating Makefile
+
+current directory: /Users/travis/code/projects/global_math_project/gmp_api/vendor/bundle/ruby/2.5.0/gems/google-cloud-debugger-0.32.0/ext/google/cloud/debugger/debugger_c
+make "DESTDIR=" clean
+
+current directory: /Users/travis/code/projects/global_math_project/gmp_api/vendor/bundle/ruby/2.5.0/gems/google-cloud-debugger-0.32.0/ext/google/cloud/debugger/debugger_c
+make "DESTDIR="
+compiling debugger.c
+compiling evaluator.c
+compiling tracer.c
+tracer.c:84:29: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    breakpoints_paths_len = RARRAY_LEN(breakpoints_paths);
+                          ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:1021:23: note: expanded from macro 'RARRAY_LEN'
+#define RARRAY_LEN(a) rb_array_len(a)
+                      ^~~~~~~~~~~~~~~
+tracer.c:117:33: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    int breakpoints_paths_len = RARRAY_LEN(breakpoints_paths);
+        ~~~~~~~~~~~~~~~~~~~~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:1021:23: note: expanded from macro 'RARRAY_LEN'
+#define RARRAY_LEN(a) rb_array_len(a)
+                      ^~~~~~~~~~~~~~~
+tracer.c:130:41: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+            int breakpoints_lines_len = RARRAY_LEN(breakpoints_lines);
+                ~~~~~~~~~~~~~~~~~~~~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:1021:23: note: expanded from macro 'RARRAY_LEN'
+#define RARRAY_LEN(a) rb_array_len(a)
+                      ^~~~~~~~~~~~~~~
+tracer.c:303:30: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    c_caller_locations_len = RARRAY_LEN(caller_locations);
+                           ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:1021:23: note: expanded from macro 'RARRAY_LEN'
+#define RARRAY_LEN(a) rb_array_len(a)
+                      ^~~~~~~~~~~~~~~
+tracer.c:496:21: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    c_threads_len = RARRAY_LEN(threads);
+                  ~ ^~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:1021:23: note: expanded from macro 'RARRAY_LEN'
+#define RARRAY_LEN(a) rb_array_len(a)
+                      ^~~~~~~~~~~~~~~
+5 warnings generated.
+linking shared-object google/cloud/debugger/debugger_c.bundle
+
+current directory: /Users/travis/code/projects/global_math_project/gmp_api/vendor/bundle/ruby/2.5.0/gems/google-cloud-debugger-0.32.0/ext/google/cloud/debugger/debugger_c
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debugger_c.bundle ./.gem.20180811-15100-127xjn/google/cloud/debugger
