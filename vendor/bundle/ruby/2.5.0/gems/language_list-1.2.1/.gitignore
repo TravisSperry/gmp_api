@@ -1,6 +1,0 @@
-.DS_Store
-construct
-*.gem
-.bundle
-Gemfile.lock
-pkg/*
