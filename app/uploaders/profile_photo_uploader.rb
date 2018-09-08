@@ -21,10 +21,13 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
     "#{model.class.to_s.underscore}/"
   end
 
-  def filename
-    return unless model.profile_photo.try(:file)
-    @name ||= format_filename if original_filename.present?
-  end
+  # def filename
+  #   return unless model.profile_photo.try(:file)
+  #
+  #   if original_filename.present?
+  #     @name ||= super.chomp(File.extname(super)) + model.profile_photo.file.extension
+  #   end
+  # end
 
   def crop
     return if model.crop_x.blank?
@@ -39,11 +42,6 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   end
 
   private
-
-  def format_filename
-    "#{model.class.to_s.underscore}-profile-photo-#{secure_random}-#{timestamp}.#{model.profile_photo.file.extension}"
-  end
-
   def timestamp
     var = :"@#{mounted_as}_timestamp"
     model.instance_variable_get(var) or model.instance_variable_set(var, Time.now.to_i)
