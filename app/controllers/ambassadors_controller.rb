@@ -29,7 +29,6 @@ class AmbassadorsController < ApplicationController
 
   # GET /ambassadors/new
   def new
-    flash[:notice] = 'Your application has been received! <a href="http://www.globalmathproject.org">Click here</a> to return to our main site.'.html_safe
     @ambassador = Ambassador.new
   end
 
