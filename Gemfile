@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.1'
 
 gem 'appengine', '~> 0.4.1'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave-google-storage'
 gem 'chosen-rails'
 gem 'cocoon'
