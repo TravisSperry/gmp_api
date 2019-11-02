@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.1'
 
 gem 'appengine', '~> 0.4.1'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -15,7 +15,7 @@ gem 'chosen-rails'
 gem 'cocoon'
 gem 'coffee-rails', '~> 4.2'
 gem 'country_select'
-gem 'devise'
+gem 'devise', '~> 4.7.1'
 gem 'font-awesome-sass', '~> 5.0.13'
 gem 'gibbon'
 gem 'google-cloud-storage', '~> 1.8', require: false
@@ -27,7 +27,7 @@ gem 'jquery-rails'
 gem 'language_list'
 gem 'pg', '~> 0.20'
 gem 'puma', '~> 3.11'
-gem 'rmagick'
+gem 'rmagick', '~> 2.16.0'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
