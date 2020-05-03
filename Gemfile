@@ -3,9 +3,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.5.3'
 
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.4.2'
 
 gem 'appengine', '~> 0.4.1'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -26,8 +26,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-datatables'
 gem 'jquery-rails'
 gem 'language_list'
+gem 'nokogiri', '>= 1.10.8'
 gem 'pg', '~> 0.20'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12.4'
+gem 'rack', '~> 2.0.8'
 gem 'rmagick', '~> 2.16.0'
 gem 'rubyzip', '~> 1.3.0'
 gem 'sass-rails', '~> 5.0'
