@@ -13,7 +13,7 @@ CarrierWave.configure do |config|
   config.gcloud_credentials = {
     gcloud_project: 'global-math-project-201820',
     # update creds
-    gcloud_keyfile: Rails.root.join('global-math-project-fb8ec2b0dba5.json')
+    gcloud_keyfile: Rails.root.join('google-credentials.json')
   }
 end
 
