@@ -14,9 +14,3 @@ services:
 before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
-deploy:
-  provider: gae
-  skip_cleanup: true
-  keyfile: global-math-project-fb8ec2b0dba5.json
-  project: global-math-project-201820
-  default: true
